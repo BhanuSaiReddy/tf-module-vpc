@@ -17,12 +17,13 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_route" "igw" {
-  for_each = try(lookup(module.subnets, "public"), {})
+  for_each = var.subnets
 
-  route_table_id         = length(each.value.route_table_ids) > 0 ? each.value.route_table_ids[0] : null
+  route_table_id         = aws_route_table_association.a[each.key].route_table_id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.igw.id
 }
+
 
 
 
