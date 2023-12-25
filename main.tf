@@ -29,7 +29,7 @@ resource "aws_eip" "ngw" {
 }
 
 resource "aws_nat_gateway" "ngw" {
-  for_each = lookup(lookup(module.subnets, "public",null), "subnets_ids",null)
+  for_each = lookup(lookup(module.subnets, "public",null), "subnet_ids",null)
   allocation_id = lookup(lookup(aws_eip.ngw,each.key,null) , "id" , null)
   subnet_id     = each.value["id"]
 }
