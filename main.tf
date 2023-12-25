@@ -38,7 +38,7 @@ output "subnet" {
   value = module.subnets
 }
 
-Bhanu
+
 
 
 
