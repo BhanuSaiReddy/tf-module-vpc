@@ -42,9 +42,9 @@ resource "aws_nat_gateway" "ngw" {
 
   }
 
-output "subnet" {
-  value = "module.subnets"
-}
+#output "subnet" {
+  #value = "module.subnets"
+#}
 
 
 resource "aws_vpc_peering_connection" "peering" {
