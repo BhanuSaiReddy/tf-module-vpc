@@ -1,5 +1,5 @@
 output "subnet" {
-value = "module.subnets"
+value = module.subnets
 }
 
 output "public_subnet_ids" {
